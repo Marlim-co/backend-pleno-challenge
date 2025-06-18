@@ -17,6 +17,8 @@ Criar uma API REST chamada **MarlimPay**, que simula um sistema de transações 
 * **Usuários** (`users`)
 * **Transações** (`transactions`)
 
+---
+
 ## 🔐 Autenticação
 
 Mocke a autenticação com um `Authorization: Bearer <token>` e considere o `user_id` associado ao token para simular operações por usuário.
@@ -61,7 +63,7 @@ Authorization: Bearer <mocked_token>
 }
 ```
 
---
+---
 
 ### **GET /users/\:id**
 
@@ -88,7 +90,7 @@ Authorization: Bearer <mocked_token>
 }
 ```
 
---
+---
 
 ### **PUT /users/\:id**
 
@@ -129,6 +131,8 @@ Authorization: Bearer <mocked_token>
 ---
 
 ## 💸 Endpoints de Transações
+
+---
 
 ### **POST /transactions**
 
@@ -174,7 +178,7 @@ Idempotency-Key: 7a98a3f2-56c8-4dbe-902b-abc123
 * 409 se `Idempotency-Key` já usado
 * 429 se exceder o rate limit (veja abaixo)
 
---
+---
 
 ### **POST /webhook/payment-gateway**
 
@@ -208,7 +212,7 @@ Authorization: Bearer <mocked_token>
 }
 ```
 
---
+---
 
 ### **GET /transactions/\:id**
 
@@ -237,7 +241,7 @@ Authorization: Bearer <mocked_token>
 }
 ```
 
---
+---
 
 ### **GET /users/\:user\_id/transactions**
 
@@ -327,6 +331,8 @@ Quando finalizar, conceda acesso ao projeto com permissões de **Editor** para o
 
 Se quiser ir além, crie o desafio utilizando o ecossistema **Firebase**, implementando **Firestore**, **Cloud Functions** e **Hosting**.
 
+---
+
 ### ✅ Requisitos adicionais:
 
 ### **Firestore**
@@ -337,7 +343,7 @@ Se quiser ir além, crie o desafio utilizando o ecossistema **Firebase**, implem
   * Transações (`transactions`)
   * Logs de Webhooks recebidos (coleção opcional: `webhook_events`)
 
---
+---
 
 ### **Cloud Functions (Node.js)**
 
@@ -357,7 +363,7 @@ Se quiser ir além, crie o desafio utilizando o ecossistema **Firebase**, implem
 * Usar **Firestore SDK** nativamente
 * Implementar **idempotência, rate limit e autenticação mockada**
 
---
+---
 
 ### **Hosting**
 
@@ -366,7 +372,3 @@ Se quiser ir além, crie o desafio utilizando o ecossistema **Firebase**, implem
   * Pode ser estática (ex: gerada por Swagger UI ou Redoc)
   * Deve estar disponível publicamente via URL da CDN do Firebase Hosting
   * Ideal: incluir payloads de exemplo e explicações básicas dos endpoints
-
---
-
-**⚠️ Importante: A versão Firebase deve funcionar localmente no emulador**. Certifique-se de que seja possível rodar tudo com ```firebase emulators:start```.
